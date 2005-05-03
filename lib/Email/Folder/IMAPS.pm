@@ -1,9 +1,9 @@
 package Email::Folder::IMAPS;
-# $Id: IMAPS.pm,v 1.2 2004/08/18 00:35:43 cwest Exp $
+# $Id: IMAPS.pm,v 1.3 2005/05/03 01:53:54 cwest Exp $
 use strict;
 
 use vars qw[$VERSION];
-$VERSION   = sprintf "%d.%02d", split m/\./, (qw$Revision: 1.2 $)[1];
+$VERSION   = sprintf "%d.%02d", split m/\./, (qw$Revision: 1.3 $)[1];
 
 use base qw[Email::Folder::IMAP];
 use Net::IMAP::Simple::SSL;
@@ -15,7 +15,7 @@ __END__
 
 =head1 NAME
 
-Email::Folder::IMAP - Email::Folder Access to IMAP over SSL Folders
+Email::Folder::IMAPS - Email::Folder Access to IMAP over SSL Folders
 
 =head1 SYNOPSIS
 
