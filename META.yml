@@ -1,12 +1,12 @@
 --- #YAML:1.0
 name:                Email-Folder-IMAPS
-version:             1.101
+version:             1.102
 abstract:            Email::Folder Access to IMAP over SSL Folders
 license:             perl
 generated_by:        ExtUtils::MakeMaker version 6.32
 distribution_type:   module
 requires:     
-    Email::Folder::IMAP:           
+    Email::Folder::IMAP:           1.102
     Email::FolderType::Net:        
     Net::IMAP::Simple::SSL:        1.3
     Test::More:                    0.47
