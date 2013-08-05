@@ -1,11 +1,13 @@
-package Email::Folder::IMAPS;
 use strict;
+use warnings;
+package Email::Folder::IMAPS;
+# ABSTRACT: Email::Folder Access to IMAP over SSL Folders
 
-use vars qw[$VERSION];
-$VERSION   = '1.102';
+our $VERSION = '1.102';
 
-use base qw[Email::Folder::IMAP];
-use Net::IMAP::Simple::SSL;
+use Email::Folder::IMAP 1.102 ();   # _imap_class;
+use parent qw[Email::Folder::IMAP]; # Argh, no version specifier!
+use Net::IMAP::Simple::SSL 1.3;     # :port
 
 sub _imap_class { 'Net::IMAP::Simple::SSL' }
 
@@ -13,9 +15,15 @@ sub _imap_class { 'Net::IMAP::Simple::SSL' }
 
 __END__
 
+=pod
+
 =head1 NAME
 
 Email::Folder::IMAPS - Email::Folder Access to IMAP over SSL Folders
+
+=head1 VERSION
+
+version 1.103
 
 =head1 SYNOPSIS
 
@@ -68,12 +76,13 @@ L<Net::IMAP::Simple::SSL>.
 
 =head1 AUTHOR
 
-Casey West, <F<casey@geeknest.com>>.
+Casey West <casey@geeknest.com>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-  Copyright (c) 2004 Casey West.  All rights reserved.
-  This module is free software; you can redistribute it and/or modify it
-  under the same terms as Perl itself.
+This software is copyright (c) 2004 by Casey West <casey@geeknest.com>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
