@@ -1,9 +1,10 @@
 use strict;
 use warnings;
 package Email::Folder::IMAPS;
+{
+  $Email::Folder::IMAPS::VERSION = '1.104';
+}
 # ABSTRACT: Email::Folder Access to IMAP over SSL Folders
-
-our $VERSION = '1.102';
 
 use Email::Folder::IMAP 1.102 ();   # _imap_class;
 use parent qw[Email::Folder::IMAP]; # Argh, no version specifier!
@@ -17,13 +18,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Email::Folder::IMAPS - Email::Folder Access to IMAP over SSL Folders
 
 =head1 VERSION
 
-version 1.103
+version 1.104
 
 =head1 SYNOPSIS
 
