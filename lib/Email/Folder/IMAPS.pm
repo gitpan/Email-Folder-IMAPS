@@ -1,11 +1,8 @@
 use strict;
 use warnings;
 package Email::Folder::IMAPS;
-{
-  $Email::Folder::IMAPS::VERSION = '1.104';
-}
 # ABSTRACT: Email::Folder Access to IMAP over SSL Folders
-
+$Email::Folder::IMAPS::VERSION = '1.105';
 use Email::Folder::IMAP 1.102 ();   # _imap_class;
 use parent qw[Email::Folder::IMAP]; # Argh, no version specifier!
 use Net::IMAP::Simple::SSL 1.3;     # :port
@@ -13,6 +10,55 @@ use Net::IMAP::Simple::SSL 1.3;     # :port
 sub _imap_class { 'Net::IMAP::Simple::SSL' }
 
 1;
+
+#pod =head1 SYNOPSIS
+#pod
+#pod   use Email::Folder;
+#pod   use Email::FolderType::Net;
+#pod   
+#pod   my $folder = Email::Folder->new('imaps://example.com'); # read INBOX
+#pod   
+#pod   print $_->header('Subject') for $folder->messages;
+#pod
+#pod =head1 DESCRIPTION
+#pod
+#pod This software adds IMAPS functionality to L<Email::Folder|Email::Folder>.
+#pod Its interface is identical to the other
+#pod L<Email::Folder::Reader|Email::Folder::Reader> subclasses.
+#pod
+#pod =head2 Parameters
+#pod
+#pod C<username> and C<password> parameters may be sent to C<new()>. If
+#pod used, they override any user info passed in the connection URI.
+#pod
+#pod =head2 Folder Specification
+#pod
+#pod Folders are specified using a simplified form of the IMAP URL Scheme
+#pod detailed in RFC 2192. Not all of that specification applies. Here
+#pod are a few examples.
+#pod
+#pod Selecting the INBOX.
+#pod
+#pod   imaps://foo.com
+#pod
+#pod Selecting the INBOX using URI based authentication. Remember that the
+#pod C<username> and C<password> parameters passed to C<new()> will override
+#pod anything set in the URI.
+#pod
+#pod   imaps://user:pass@foo.com
+#pod
+#pod Selecting the p5p list.
+#pod
+#pod   imaps://foo.com/perl/perl5-porters
+#pod
+#pod =head1 SEE ALSO
+#pod
+#pod L<Email::Folder>,
+#pod L<Email::Folder::Reader>,
+#pod L<Email::Folder::IMAP>,
+#pod L<Email::FolderType::Net>,
+#pod L<URI::imaps>,
+#pod L<Net::IMAP::Simple::SSL>.
 
 __END__
 
@@ -26,7 +72,7 @@ Email::Folder::IMAPS - Email::Folder Access to IMAP over SSL Folders
 
 =head1 VERSION
 
-version 1.104
+version 1.105
 
 =head1 SYNOPSIS
 
